@@ -1,73 +1,55 @@
-# Welcome to your Lovable project
+# 🚀 Shrish's Developer Portfolio
 
-## Project info
+Welcome to my personal portfolio website — a fully responsive, animated, and modern React-based site to showcase my skills, projects, experience, and passion for software development, machine learning, and fintech.
 
-**URL**: https://lovable.dev/projects/c62d6626-d3a9-4bf1-9fb2-d637a2810d69
+> ✨ Built with React.js, Tailwind CSS, Framer Motion, Shadcn/UI, and hosted with ❤️
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🌐 Live Demo
 
-**Use Lovable**
+🔗 [View Portfolio Live](https://your-deployment-link.com)  
+🧠 [LinkedIn](https://linkedin.com/in/your-profile)  
+📂 [Resume (PDF)](https://your-link-to-resume.pdf)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/c62d6626-d3a9-4bf1-9fb2-d637a2810d69) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 📸 Demo Preview
 
-**Use your preferred IDE**
+| Landing Page (Hero) | Project Section |
+|---------------------|-----------------|
+| ![Hero](./screenshots/hero.png) | ![Projects](./screenshots/projects.png) |
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+_Add your screenshots inside a `screenshots/` folder._
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## 📦 Tech Stack
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+| Category          | Tools Used                          |
+|------------------|-------------------------------------|
+| Frontend         | React.js, Vite, Tailwind CSS        |
+| Animations       | Framer Motion, Particles.js         |
+| UI Components    | Shadcn/UI, Radix UI                 |
+| State Management | React Context API                   |
+| Utilities        | Custom Hooks, Toast Notifications   |
+| Version Control  | Git + GitHub                        |
+| Deployment       | GitHub Pages / Vercel / Netlify     |
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## ✨ Features
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+- 🔥 Fully responsive and mobile-first layout
+- 🌙 Light/Dark theme toggle (with animation)
+- 🎯 Scroll-triggered and hover animations (Framer Motion)
+- 📁 Modular component structure (sections, hooks, context)
+- 📬 Contact form with validation (and optional integration)
+- 💻 Interactive projects with GitHub links & live previews
+- 📜 Downloadable resume with button
+- 🧼 Clean, scalable, and production-ready codebase
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📁 Folder Structure
 
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/c62d6626-d3a9-4bf1-9fb2-d637a2810d69) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
