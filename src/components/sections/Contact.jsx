@@ -7,13 +7,6 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 
-interface ContactForm {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-}
-
 const contactInfo = [
   {
     icon: Mail,
@@ -57,7 +50,7 @@ const socialLinks = [
 ];
 
 export function Contact() {
-  const [form, setForm] = useState<ContactForm>({
+  const [form, setForm] = useState({
     name: '',
     email: '',
     subject: '',
@@ -66,24 +59,23 @@ export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
     setForm(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      // Simulate form submission
       await new Promise(resolve => setTimeout(resolve, 1000));
-      
+
       toast({
         title: "Message sent successfully!",
         description: "Thank you for reaching out. I'll get back to you soon.",
       });
-      
+
       setForm({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
       toast({
@@ -99,6 +91,7 @@ export function Contact() {
   return (
     <section id="contact" className="py-20 bg-muted/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -116,7 +109,7 @@ export function Contact() {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
+          {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -124,8 +117,6 @@ export function Contact() {
             viewport={{ once: true }}
           >
             <h3 className="text-2xl font-bold text-foreground mb-6">Let's Connect</h3>
-            
-            {/* Contact Details */}
             <div className="space-y-6 mb-8">
               {contactInfo.map((contact, index) => {
                 const Icon = contact.icon;
@@ -159,7 +150,7 @@ export function Contact() {
               })}
             </div>
 
-            {/* Social Links */}
+            {/* Social */}
             <div>
               <h4 className="text-lg font-semibold text-foreground mb-4">Follow Me</h4>
               <div className="flex gap-4">
@@ -179,11 +170,9 @@ export function Contact() {
                       className="w-12 h-12 bg-card border border-border rounded-full flex items-center justify-center hover:shadow-lg transition-all duration-300 group"
                       style={{ 
                         '--hover-color': social.color 
-                      } as React.CSSProperties}
+                      }}
                     >
-                      <Icon 
-                        className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors duration-300" 
-                      />
+                      <Icon className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
                     </motion.a>
                   );
                 })}
@@ -200,15 +189,9 @@ export function Contact() {
           >
             <Card className="p-6 md:p-8 bg-card border-border shadow-lg hover:shadow-purple transition-all duration-300">
               <h3 className="text-2xl font-bold text-foreground mb-6">Send Me a Message</h3>
-              
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.1 }}
-                    viewport={{ once: true }}
-                  >
+                  <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
                       Name *
                     </label>
@@ -218,17 +201,10 @@ export function Contact() {
                       value={form.name}
                       onChange={handleInputChange}
                       required
-                      className="border-border focus:border-primary focus:ring-primary"
                       placeholder="Your full name"
                     />
-                  </motion.div>
-                  
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    viewport={{ once: true }}
-                  >
+                  </div>
+                  <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
                       Email *
                     </label>
@@ -238,18 +214,11 @@ export function Contact() {
                       value={form.email}
                       onChange={handleInputChange}
                       required
-                      className="border-border focus:border-primary focus:ring-primary"
                       placeholder="your.email@example.com"
                     />
-                  </motion.div>
+                  </div>
                 </div>
-                
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  viewport={{ once: true }}
-                >
+                <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
                     Subject *
                   </label>
@@ -259,17 +228,10 @@ export function Contact() {
                     value={form.subject}
                     onChange={handleInputChange}
                     required
-                    className="border-border focus:border-primary focus:ring-primary"
                     placeholder="What's this about?"
                   />
-                </motion.div>
-                
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  viewport={{ once: true }}
-                >
+                </div>
+                <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
                     Message *
                   </label>
@@ -279,17 +241,10 @@ export function Contact() {
                     onChange={handleInputChange}
                     required
                     rows={5}
-                    className="border-border focus:border-primary focus:ring-primary resize-none"
                     placeholder="Tell me more about your project or inquiry..."
                   />
-                </motion.div>
-                
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.5 }}
-                  viewport={{ once: true }}
-                >
+                </div>
+                <div>
                   <Button
                     type="submit"
                     disabled={isSubmitting}
@@ -307,7 +262,7 @@ export function Contact() {
                       </div>
                     )}
                   </Button>
-                </motion.div>
+                </div>
               </form>
             </Card>
           </motion.div>
@@ -322,7 +277,7 @@ export function Contact() {
           className="text-center mt-16 pt-8 border-t border-border"
         >
           <p className="text-muted-foreground">
-            © 2024 Shrish. Built with React, TypeScript, and Tailwind CSS.
+            © 2024 Shrish. Built with React, Tailwind CSS, and love 💙
           </p>
         </motion.div>
       </div>

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Download, Github, Linkedin, Mail } from 'lucide-react';
+import { Download, Github, Linkedin } from 'lucide-react';
 import { TypingAnimation } from '@/components/TypingAnimation';
 import { ParticleBackground } from '@/components/Particles';
 import { Button } from '@/components/ui/button';
@@ -16,8 +16,9 @@ export function Hero() {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       <ParticleBackground />
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center relative z-10">
+
         {/* Profile Image */}
         <motion.div
           initial={{ opacity: 0, scale: 0 }}
@@ -62,7 +63,7 @@ export function Hero() {
           <h2 className="text-xl md:text-2xl text-muted-foreground mb-6">
             AI/ML Enthusiast | Full Stack Developer
           </h2>
-          
+
           {/* Typing Animation */}
           <div className="text-lg md:text-xl text-primary font-medium h-8">
             <TypingAnimation texts={typingTexts} />
@@ -94,7 +95,7 @@ export function Hero() {
             <Download className="mr-2 h-5 w-5" />
             Download Resume
           </Button>
-          
+
           <div className="flex gap-4">
             <Button
               variant="outline"
@@ -107,7 +108,7 @@ export function Hero() {
                 GitHub
               </a>
             </Button>
-            
+
             <Button
               variant="outline"
               size="lg"

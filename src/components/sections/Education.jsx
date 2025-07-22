@@ -67,7 +67,7 @@ export function Education() {
                         <Icon className="w-8 h-8 text-primary" />
                       </div>
                     </div>
-                    
+
                     <div className="flex-grow">
                       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                         <div>
@@ -78,7 +78,7 @@ export function Education() {
                             {edu.degree}
                           </p>
                         </div>
-                        
+
                         <div className="text-right">
                           <div className="flex items-center text-muted-foreground mb-2">
                             <Calendar className="w-4 h-4 mr-2" />
@@ -91,7 +91,7 @@ export function Education() {
                           )}
                         </div>
                       </div>
-                      
+
                       <p className="text-muted-foreground leading-relaxed">
                         {edu.description}
                       </p>

@@ -65,7 +65,7 @@ export function Projects() {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  
+
                   {project.featured && (
                     <div className="absolute top-4 left-4">
                       <Badge className="bg-primary text-primary-foreground">
@@ -90,8 +90,8 @@ export function Projects() {
                   {/* Technologies */}
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.technologies.map((tech, techIndex) => (
-                      <Badge 
-                        key={techIndex} 
+                      <Badge
+                        key={techIndex}
                         variant="secondary"
                         className="text-xs bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
                       >
@@ -113,7 +113,7 @@ export function Projects() {
                         Code
                       </a>
                     </Button>
-                    
+
                     <Button
                       size="sm"
                       className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-purple transition-all duration-300"

@@ -1,12 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-interface TypingAnimationProps {
-  texts: string[];
-  className?: string;
-}
-
-export function TypingAnimation({ texts, className = "" }: TypingAnimationProps) {
+export function TypingAnimation({ texts, className = "" }) {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);

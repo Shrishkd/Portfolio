@@ -21,17 +21,16 @@ export function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 100);
-      
-      // Update active section based on scroll position
+
       const sections = navItems.map(item => item.href.slice(1));
       const scrollPosition = window.scrollY + 100;
-      
+
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const offsetTop = element.offsetTop;
           const offsetHeight = element.offsetHeight;
-          
+
           if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
             setActiveSection(section);
             break;
@@ -44,7 +43,7 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (href: string) => {
+  const scrollToSection = () => {
     const element = document.querySelector(href);
     element?.scrollIntoView({ behavior: 'smooth' });
     setIsMobileMenuOpen(false);
@@ -62,24 +61,19 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo with profile image */}
-          <motion.div 
-            className="flex items-center space-x-3"
-            whileHover={{ scale: 1.05 }}
-          >
+          {/* Logo */}
+          <motion.div className="flex items-center space-x-3" whileHover={{ scale: 1.05 }}>
             <motion.img
               src={profileImage}
               alt="Shrish"
               className="w-12 h-12 rounded-full object-cover border-2 border-primary"
             />
-            <motion.span 
-              className="text-xl font-bold font-montserrat text-gradient"
-            >
+            <motion.span className="text-xl font-bold font-montserrat text-gradient">
               Shrish
             </motion.span>
           </motion.div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Nav */}
           <div className="hidden md:block">
             <div className="flex items-center space-x-8">
               {navItems.map((item) => (
@@ -108,7 +102,7 @@ export function Navbar() {
             </div>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile Nav Toggle */}
           <div className="md:hidden">
             <motion.button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -121,7 +115,7 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
