@@ -1,4 +1,4 @@
-# 🚀 Shrish's Developer Portfolio
+# 🚀 Shrish's Portfolio
 
 Welcome to my personal portfolio website — a fully responsive, animated, and modern React-based site to showcase my skills, projects, experience, and passion for software development, machine learning, and fintech.
 
