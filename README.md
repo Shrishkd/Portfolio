@@ -51,5 +51,5 @@ _Add your screenshots inside a `screenshots/` folder._
 
 ---
 
-## 📁 Folder Structure
+
 
