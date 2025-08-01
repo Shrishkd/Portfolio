@@ -8,9 +8,9 @@ Welcome to my personal portfolio website — a fully responsive, animated, and m
 
 ## 🌐 Live Demo
 
-🔗 [View Portfolio Live](https://your-deployment-link.com)  
-🧠 [LinkedIn](https://linkedin.com/in/your-profile)  
-📂 [Resume (PDF)](https://your-link-to-resume.pdf)
+🔗 [View Portfolio Live](https://portfolio-1u8z.onrender.com)  
+🧠 [LinkedIn](https://www.linkedin.com/in/shrish-das-44ba5a27b/)  
+📂 [Resume (PDF)](https://drive.google.com/file/d/1IdLZr6cqbp7KYciJFFPAWjYTz1HRKXpX/view?usp=sharing)
 
 ---
 
