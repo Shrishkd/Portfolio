@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Building, Users, Calendar, Award } from 'lucide-react';
+import { Building,  Calendar, Award, Brain, LaptopMinimalCheck } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 
 const experiences = [
@@ -27,16 +27,16 @@ const experiences = [
 
 const achievements = [
   {
-    title: "Zonal Rank 1",
-    description: "19th SOF National Science Olympiad",
-    icon: Award,
-    details: "Achieved first position at zonal level in the prestigious Science Olympiad"
+    title: "Hackathons",
+    description: "Participated in 12+ Hackathons",
+    icon: LaptopMinimalCheck,
+    details: "Secured Top 3 positions in multiple hackathons, demonstrating strong problem-solving skills and innovative thinking."
   },
   {
-    title: "International Rank 4726",
-    description: "19th SOF National Science Olympiad",
-    icon: Users,
-    details: "Secured impressive international ranking among thousands of participants"
+    title: "Problem Solving",
+    description: "Solved over 250+ questions",
+    icon: Brain,
+    details: "Solved over 250 DSA questions on platforms like LeetCode, Codeforces, and GeeksforGeeks, enhancing my problem-solving skills."
   },
   {
     title: "Gold Medalist",
@@ -193,12 +193,15 @@ export  function Experience() {
         >
           <h3 className="text-2xl font-bold text-foreground mb-8">Certifications</h3>
 
-          <Card className="p-6 bg-card border-border shadow-lg hover:shadow-purple transition-all duration-300">
+          <a href="https://coursera.org/verify/V76UOZ2JWO8E" 
+          target="_blank" 
+          rel="noopener noreferrer">
+
+          <Card className="p-6 bg-card border-border shadow-lg hover:shadow-purple transition-all duration-300  hover:cursor-pointer hover:scale-[1.02]">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
                 <Award className="w-6 h-6 text-primary" />
               </div>
-
               <div>
                 <h4 className="text-lg font-bold text-foreground">
                   Unsupervised Learning, Recommenders & Reinforcement Learning
@@ -208,7 +211,29 @@ export  function Experience() {
               </div>
             </div>
           </Card>
+          </a>
+
+          <a href="https://coursera.org/verify/MNFOQ5GZB6KX" 
+          target="_blank" 
+          rel="noopener noreferrer">         
+
+          <Card className="p-6 bg-card border-border shadow-lg hover:shadow-purple transition-all duration-300 mt-6  hover:cursor-pointer hover:scale-[1.02]">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                <Award className="w-6 h-6 text-primary" />
+              </div>
+              <div>
+                <h4 className="text-lg font-bold text-foreground">
+                  Generative AI: Prompt Engineering Basics
+                </h4>
+                <p className="text-primary font-medium"> IBM (Coursera) </p>
+                <p className="text-sm text-muted-foreground">Completed with verified certificate and badge</p>
+              </div>
+            </div>
+          </Card>
+          </a> 
         </motion.div>
+
       </div>
     </section>
   );
