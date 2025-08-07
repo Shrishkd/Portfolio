@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { Download, Github, Linkedin } from 'lucide-react';
 import { TypingAnimation } from '@/components/TypingAnimation';
-import { ParticleBackground } from '@/components/Particles';
 import { Button } from '@/components/ui/button';
 import profileImage from '@/assets/profile-image.jpg';
 
@@ -15,7 +14,6 @@ const typingTexts = [
 export function Hero() {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      <ParticleBackground />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center relative z-10">
 
