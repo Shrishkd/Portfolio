@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Phone, Linkedin, Instagram, Send, MapPin } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -7,8 +7,6 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import emailjs from 'emailjs-com';
-import confetti from 'canvas-confetti';
-
 
 const contactInfo = [
   {
@@ -60,6 +58,7 @@ export function Contact() {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const { toast } = useToast();
 
   const handleInputChange = (e) => {
@@ -84,18 +83,12 @@ export function Contact() {
         '5zkZuY9iECsq_6FFg'
       );
 
-      toast({
-        title: "Message sent successfully!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
-      });
+      
 
-      confetti({
-      particleCount: 120,
-      spread: 80,
-      origin: { y: 0.6 },
-      colors: ['#a855f7', '#6366f1', '#f472b6'], // purple, indigo, pink
-    });
-
+      setShowModal(true);
+      setTimeout(() => {
+        setShowModal(false);
+      }, 4000);
 
       setForm({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
@@ -112,7 +105,6 @@ export function Contact() {
   return (
     <section id="contact" className="py-20 bg-muted/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -130,7 +122,6 @@ export function Contact() {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -171,7 +162,6 @@ export function Contact() {
               })}
             </div>
 
-            {/* Social */}
             <div>
               <h4 className="text-lg font-semibold text-foreground mb-4">Follow Me</h4>
               <div className="flex gap-4">
@@ -201,7 +191,6 @@ export function Contact() {
             </div>
           </motion.div>
 
-          {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -213,64 +202,24 @@ export function Contact() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Name *
-                    </label>
-                    <Input
-                      type="text"
-                      name="name"
-                      value={form.name}
-                      onChange={handleInputChange}
-                      required
-                      placeholder="Your full name"
-                    />
+                    <label className="block text-sm font-medium text-foreground mb-2">Name *</label>
+                    <Input type="text" name="name" value={form.name} onChange={handleInputChange} required placeholder="Your full name" />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Email *
-                    </label>
-                    <Input
-                      type="email"
-                      name="email"
-                      value={form.email}
-                      onChange={handleInputChange}
-                      required
-                      placeholder="your.email@example.com"
-                    />
+                    <label className="block text-sm font-medium text-foreground mb-2">Email *</label>
+                    <Input type="email" name="email" value={form.email} onChange={handleInputChange} required placeholder="your.email@example.com" />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Subject *
-                  </label>
-                  <Input
-                    type="text"
-                    name="subject"
-                    value={form.subject}
-                    onChange={handleInputChange}
-                    required
-                    placeholder="What's this about?"
-                  />
+                  <label className="block text-sm font-medium text-foreground mb-2">Subject *</label>
+                  <Input type="text" name="subject" value={form.subject} onChange={handleInputChange} required placeholder="What's this about?" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Message *
-                  </label>
-                  <Textarea
-                    name="message"
-                    value={form.message}
-                    onChange={handleInputChange}
-                    required
-                    rows={5}
-                    placeholder="Tell me more about your project or inquiry..."
-                  />
+                  <label className="block text-sm font-medium text-foreground mb-2">Message *</label>
+                  <Textarea name="message" value={form.message} onChange={handleInputChange} required rows={5} placeholder="Tell me more about your project or inquiry..." />
                 </div>
                 <div>
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-purple transition-all duration-300"
-                  >
+                  <Button type="submit" disabled={isSubmitting} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-purple transition-all duration-300">
                     {isSubmitting ? (
                       <div className="flex items-center">
                         <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
@@ -289,7 +238,21 @@ export function Contact() {
           </motion.div>
         </div>
 
-        {/* Footer */}
+        {/* Animated Modal */}
+        <AnimatePresence>
+          {showModal && (
+            <motion.div
+              className="fixed top-6 right-6 z-50 bg-white dark:bg-zinc-900 rounded-xl shadow-lg px-8 py-6 text-base text-center min-w-64"              initial={{ opacity: 0, y: -20, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -20, scale: 0.95 }}
+              transition={{ duration: 0.4 }}
+            >
+              <p className="text-primary font-semibold">Thanks for reaching out! 🙌</p>
+              <p className="text-muted-foreground">I'll get back to you soon.</p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
