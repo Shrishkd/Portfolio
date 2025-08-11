@@ -66,7 +66,6 @@ export  function Experience() {
           </p>
         </motion.div>
 
-        {/* Education (Experience-style) Section */}
         <div className="mb-16">
           <motion.h3
             initial={{ opacity: 0, x: -30 }}
@@ -183,58 +182,51 @@ export  function Experience() {
           </div>
         </div>
 
-        {/* Certifications */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mt-16"
-        >
-          <h3 className="text-2xl font-bold text-foreground mb-8">Certifications</h3>
+{/* Certifications */}
+<div className="mt-16">
+  <h3 className="text-2xl font-bold text-foreground mb-8">Certifications</h3>
 
-          <a href="https://coursera.org/verify/V76UOZ2JWO8E" 
-          target="_blank" 
-          rel="noopener noreferrer">
-
-          <Card className="p-6 bg-card border-border shadow-lg hover:shadow-purple transition-all duration-300  hover:cursor-pointer hover:scale-[1.02]">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                <Award className="w-6 h-6 text-primary" />
-              </div>
-              <div>
-                <h4 className="text-lg font-bold text-foreground">
-                  Unsupervised Learning, Recommenders & Reinforcement Learning
-                </h4>
-                <p className="text-primary font-medium">Stanford Online (Coursera)</p>
-                <p className="text-sm text-muted-foreground">Completed with verified certificate and badge</p>
-              </div>
-            </div>
-          </Card>
-          </a>
-
-          <a href="https://coursera.org/verify/MNFOQ5GZB6KX" 
-          target="_blank" 
-          rel="noopener noreferrer">         
-
-          <Card className="p-6 bg-card border-border shadow-lg hover:shadow-purple transition-all duration-300 mt-6  hover:cursor-pointer hover:scale-[1.02]">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                <Award className="w-6 h-6 text-primary" />
-              </div>
-              <div>
-                <h4 className="text-lg font-bold text-foreground">
-                  Generative AI: Prompt Engineering Basics
-                </h4>
-                <p className="text-primary font-medium"> IBM (Coursera) </p>
-                <p className="text-sm text-muted-foreground">Completed with verified certificate and badge</p>
-              </div>
-            </div>
-          </Card>
-          </a> 
-        </motion.div>
-
-      </div>
+  {[ 
+    {
+      href: "https://coursera.org/verify/V76UOZ2JWO8E",
+      title: "Unsupervised Learning, Recommenders & Reinforcement Learning",
+      org: "Stanford Online (Coursera)",
+      desc: "Completed with verified certificate and badge"
+    },
+    {
+      href: "https://coursera.org/verify/MNFOQ5GZB6KX",
+      title: "Generative AI: Prompt Engineering Basics",
+      org: "IBM (Coursera)",
+      desc: "Completed with verified certificate and badge"
+    }
+  ].map((cert, index) => (
+    <motion.a
+      key={index}
+      href={cert.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block"
+      initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }} 
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.8, delay: index * 0.2 }}
+      viewport={{ once: true }}
+    >
+      <Card className={`p-6 bg-card border-border shadow-lg hover:shadow-purple transition-all duration-300 hover:cursor-pointer hover:scale-[1.02] ${index > 0 ? "mt-6" : ""}`}>
+        <div className="flex items-center gap-4">
+          <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+            <Award className="w-6 h-6 text-primary" />
+          </div>
+          <div>
+            <h4 className="text-lg font-bold text-foreground">{cert.title}</h4>
+            <p className="text-primary font-medium">{cert.org}</p>
+            <p className="text-sm text-muted-foreground">{cert.desc}</p>
+          </div>
+        </div>
+      </Card>
+    </motion.a>
+  ))}
+</div>
+</div>
     </section>
   );
 }
