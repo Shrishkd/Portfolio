@@ -43,11 +43,24 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (href) => {
-    const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: 'smooth' });
-    setIsMobileMenuOpen(false);
-  };
+    const scrollToSection = (href) => {
+      const element = document.querySelector(href);
+      if (element) {
+        const yOffset = -70; // adjust based on your navbar height
+        const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+
+        if (isMobileMenuOpen) {
+          setIsMobileMenuOpen(false);
+          setTimeout(() => {
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }, 300); // matches mobile menu close animation
+        } else {
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }
+    };
+
+
 
   return (
     <motion.nav
