@@ -28,20 +28,17 @@ export function About() {
             <div className="text-center">
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-6">
                 I'm a passionate Computer Science student currently pursuing my B.Tech in AI/ML at VIT Bhopal. 
-                My journey in technology began with a curiosity about how things work, which eventually led me 
-                to explore the fascinating worlds of artificial intelligence, machine learning, and software development.
+                My journey in technology started with a curiosity about how things work, leading me to explore artificial intelligence & machine learning.
               </p>
               
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-6">
-                When I'm not coding or studying, you'll find me exploring the financial markets as a trader, 
-                combining my technical knowledge with market analysis. I believe in the power of technology 
-                to solve real-world problems and I'm constantly working on projects that bridge the gap 
-                between innovation and practical applications.
+                I'm always eager to learn new technologies, collaborate on exciting projects, and contribute 
+                to meaningful solutions that can make a positive impact. Let's build something amazing together!
               </p>
               
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                I'm always eager to learn new technologies, collaborate on exciting projects, and contribute 
-                to meaningful solutions that can make a positive impact. Let's build something amazing together!
+                When I'm not coding or studying, you'll find me exploring the financial markets as a trader, 
+                combining my technical knowledge with market analysis.
               </p>
             </div>
           </Card>

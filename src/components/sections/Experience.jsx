@@ -13,12 +13,10 @@ const experiences = [
     icon: Building,
     responsibilities: [
       "Managed technical and non-technical events for the robotics club",
-      "Promoted collaboration and team-building among club members",
       "Coordinated workshops and competitions to enhance student engagement",
       "Led a team of volunteers to organize successful events"
     ],
     achievements: [
-      "Successfully organized 5+ major events with 200+ participants",
       "Improved club membership by 40% through engaging activities",
       "Established partnerships with other technical clubs"
     ]
