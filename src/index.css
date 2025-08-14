@@ -96,10 +96,42 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground font-poppins;
     transition: var(--transition-smooth);
+    /* Improve mobile scrolling */
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
   }
 
   html {
     scroll-behavior: smooth;
+    /* Ensure proper mobile viewport behavior */
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+
+  /* Improve mobile touch scrolling */
+  @media (max-width: 768px) {
+    html, body {
+      overflow-x: hidden;
+      position: relative;
+    }
+    
+    /* Ensure smooth scrolling on mobile */
+    * {
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Mobile menu specific styles */
+    .mobile-menu {
+      transition: all 0.2s ease-in-out;
+      will-change: height, opacity;
+    }
+    
+    /* Prevent body scroll when mobile menu is open */
+    body.mobile-menu-open {
+      overflow: hidden;
+      position: fixed;
+      width: 100%;
+    }
   }
 }
 
