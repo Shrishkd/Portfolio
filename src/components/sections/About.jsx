@@ -32,13 +32,13 @@ export function About() {
               </p>
               
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-6">
-                I'm always eager to learn new technologies, collaborate on exciting projects, and contribute 
-                to meaningful solutions that can make a positive impact. Let's build something amazing together!
+                When I'm not coding or studying, you'll find me exploring the financial markets as a trader, 
+                combining my technical knowledge with market analysis.
               </p>
               
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                When I'm not coding or studying, you'll find me exploring the financial markets as a trader, 
-                combining my technical knowledge with market analysis.
+                I'm always eager to learn new technologies, collaborate on exciting projects, and contribute 
+                to meaningful solutions that can make a positive impact. Let's build something amazing together!
               </p>
             </div>
           </Card>
